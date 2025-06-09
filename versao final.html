@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora Mobile - Bella Motors</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <style>
+    body {
+      background: url('a586c182-a078-4b6d-ae1a-1dfc7072417a.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      padding: 10px;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .section {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    .section h4 {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffd700;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .form-inline .form-control {
+      width: auto;
+    }
+
+    .btn-block {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Bella Motors</h1>
+    <h3 class="text-center">Calculadora</h3>
+    <button class="btn btn-warning btn-block" onclick="reload()">Limpar Tudo</button>
+    <button class="btn btn-success btn-block" onclick="fullTuning()">Full Tuning</button>
+
+    <div class="section">
+      <h4>Freios</h4>
+      <label><input type="radio" name="freio" onchange="main()" /> Street - 10.000</label>
+      <label><input type="radio" name="freio" onchange="main()" /> Sport - 15.000</label>
+      <label><input type="radio" name="freio" onchange="main()" /> Race - 20.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Transmissão</h4>
+      <label><input type="radio" name="trans" onchange="main()" /> Street - 10.000</label>
+      <label><input type="radio" name="trans" onchange="main()" /> Sport - 15.000</label>
+      <label><input type="radio" name="trans" onchange="main()" /> Race - 20.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Suspensão</h4>
+      <label><input type="radio" name="susp" onchange="main()" /> 1º Stage - 5.000</label>
+      <label><input type="radio" name="susp" onchange="main()" /> 2º Stage - 10.000</label>
+      <label><input type="radio" name="susp" onchange="main()" /> 3º Stage - 15.000</label>
+      <label><input type="radio" name="susp" onchange="main()" /> 4º Stage - 20.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Blindagem</h4>
+      <label><input type="radio" name="blin" onchange="main()" /> 1º 20% - 50.000</label>
+      <label><input type="radio" name="blin" onchange="main()" /> 2º 40% - 60.000</label>
+      <label><input type="radio" name="blin" onchange="main()" /> 3º 60% - 70.000</label>
+      <label><input type="radio" name="blin" onchange="main()" /> 4º 80% - 80.000</label>
+      <label><input type="radio" name="blin" onchange="main()" /> 5º 100% - 90.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Motor</h4>
+      <label><input type="radio" name="motor" onchange="main()" /> 1º Street - 10.000</label>
+      <label><input type="radio" name="motor" onchange="main()" /> 2º Sport - 20.000</label>
+      <label><input type="radio" name="motor" onchange="main()" /> 3º Race - 30.000</label>
+      <label><input type="radio" name="motor" onchange="main()" /> 4º Top - 40.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Turbo</h4>
+      <label><input type="checkbox" id="turbo" onclick="main()" /> 1 - 60.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Visual</h4>
+      <label><input type="checkbox" onchange="main()" /> Buzina - 20.000</label>
+      <label><input type="checkbox" onchange="main()" /> Xenon - 40.000</label>
+      <label><input type="checkbox" onchange="main()" /> Neon - 30.000</label>
+      <label><input type="checkbox" onchange="main()" /> Rodas - 90.000</label>
+      <label><input type="checkbox" onchange="main()" /> Cor Rodas - 20.000</label>
+      <label><input type="checkbox" onchange="main()" /> Acess. Rodas - 4.000</label>
+      <label><input type="checkbox" onchange="main()" /> Pintura Primária - 10.000</label>
+      <label><input type="checkbox" onchange="main()" /> Pintura Secundária - 10.000</label>
+      <label><input type="checkbox" onchange="main()" /> Fumaça Pneu - 30.000</label>
+      <label><input type="checkbox" onchange="main()" /> Placa - 10.000</label>
+      <label><input type="checkbox" onchange="main()" /> extras - 30.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Vidros</h4>
+      <label><input type="radio" name="vidro" onchange="main()" /> 1 Fume 100% - 40.000</label>
+      <label><input type="radio" name="vidro" onchange="main()" /> 2 Fume 70% - 40.000</label>
+      <label><input type="radio" name="vidro" onchange="main()" /> 3 Fume 50% - 40.000</label>
+      <label><input type="radio" name="vidro" onchange="main()" /> 4 Fume 40% - 40.000</label>
+      <label><input type="radio" name="vidro" onchange="main()" /> 5 Fume 30% - 40.000</label>
+    </div>
+
+    <div class="section">
+      <h4>Desconto</h4>
+      <div class="input-group">
+        <span class="input-group-addon"> %: </span>
+        <input type="number" id="desconto" class="form-control" placeholder="0" onchange="main()" min="0" max="100" />
+      </div>
+    </div>
+
+    <div class="section">
+      <h4>Total</h4>
+      <div class="input-group">
+        <span class="input-group-addon">Total a cobrar:</span>
+        <input type="text" id="total" class="form-control" readonly />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function main() {
+      let total = 0;
+
+      total += getSelectedValue('freio');
+      total += getSelectedValue('trans');
+      total += getSelectedValue('susp');
+      total += getSelectedValue('blin');
+      total += getSelectedValue('motor');
+      total += getSelectedValue('vidro');
+
+      if (document.getElementById('turbo').checked) {
+        total += 60000;
+      }
+
+      // Corrigido: pegar a seção Visual pelo título
+      const visualSection = Array.from(document.querySelectorAll('.section')).find(
+        sec => sec.querySelector('h4') && sec.querySelector('h4').textContent.trim() === 'Visual'
+      );
+
+      if (visualSection) {
+        const visualCheckboxes = visualSection.querySelectorAll('input[type="checkbox"]');
+        const visualValores = [20000, 40000, 30000, 90000, 20000, 4000, 10000, 10000, 30000, 10000, 30000];
+        visualCheckboxes.forEach((box, i) => {
+          if (box.checked) {
+            total += visualValores[i];
+          }
+        });
+      }
+
+      const desconto = parseFloat(document.getElementById('desconto').value) || 0;
+      const descontoValor = (total * desconto) / 100;
+      const totalComDesconto = total - descontoValor;
+
+      document.getElementById('total').value = totalComDesconto.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+    }
+
+    function getSelectedValue(name) {
+      const radios = document.getElementsByName(name);
+      for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          const label = radios[i].parentElement.textContent;
+          const match = label.match(/(\d+\.?\d*)/g);
+          if (match) {
+            return parseInt(match[match.length - 1].replace(/\./g, ''));
+          }
+        }
+      }
+      return 0;
+    }
+
+    function reload() {
+      window.location.reload();
+    }
+
+    function fullTuning() {
+      const freios = document.getElementsByName('freio');
+      const trans = document.getElementsByName('trans');
+      const susp = document.getElementsByName('susp');
+      const motor = document.getElementsByName('motor');
+
+      // Seleciona só os itens desejados para full tuning
+      if (freios.length) freios[freios.length - 1].checked = true; // Race
+      if (trans.length) trans[trans.length - 1].checked = true;     // Race
+      if (susp.length) susp[susp.length - 1].checked = true;        // 4º Stage
+      if (motor.length) motor[motor.length - 1].checked = true;     // 4º Top
+
+      // Desmarcar outros grupos e opções
+      const blin = document.getElementsByName('blin');
+      blin.forEach(box => box.checked = false);
+
+      const vidro = document.getElementsByName('vidro');
+      vidro.forEach(box => box.checked = false);
+
+      document.getElementById('turbo').checked = false;
+
+      const visualSection = Array.from(document.querySelectorAll('.section')).find(
+        sec => sec.querySelector('h4') && sec.querySelector('h4').textContent.trim() === 'Visual'
+      );
+      if (visualSection) {
+        const visualCheckboxes = visualSection.querySelectorAll('input[type="checkbox"]');
+        visualCheckboxes.forEach(box => box.checked = false);
+      }
+
+      main();
+    }
+
+    window.onload = main;
+  </script>
+</body>
+
+</html>
